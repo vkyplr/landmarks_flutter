@@ -23,3 +23,6 @@ final class AuthErrorState extends AuthState {
 
 // Not Logged im State
 final class AuthNotLoggedInState extends AuthState {}
+
+// Loggout Out State
+final class AuthLoggedOutState extends AuthState {}

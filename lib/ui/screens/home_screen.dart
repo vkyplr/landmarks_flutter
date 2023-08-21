@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:world_famous_landmarks/bloc/auth/auth_bloc.dart';
 import 'package:world_famous_landmarks/bloc/landmarks/landmarks_bloc.dart';
 import 'package:world_famous_landmarks/data/models/landmark_model.dart';
 import 'package:world_famous_landmarks/res/colors/app_colors.dart';
 import 'package:world_famous_landmarks/res/dimensions/app_dimensions.dart';
+import 'package:world_famous_landmarks/res/styles/text_styles.dart';
 import 'package:world_famous_landmarks/ui/screens/landmark_info_screen.dart';
+import 'package:world_famous_landmarks/ui/screens/login_screen.dart';
 import 'package:world_famous_landmarks/ui/widgets/error_widget.dart';
 import 'package:world_famous_landmarks/ui/widgets/landmark_list_tile.dart';
 import 'package:world_famous_landmarks/ui/widgets/loader.dart';
@@ -43,25 +46,25 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget homeContent(LandmarksSuccessState successState) {
     return Column(
       children: [
-        // BlocListener<AuthBloc, AuthState>(
-        //   listenWhen: (previous, current) => current is AuthNotLoggedInState,
-        //   listener: (context, state) {
-        //     Navigator.of(context).pushAndRemoveUntil(
-        //         MaterialPageRoute(builder: (context) => const LoginScreen()),
-        //         (route) => false);
-        //   },
-        //   child: Align(
-        //     alignment: Alignment.topRight,
-        //     child: TextButton(
-        //       onPressed: () {
-        //         context.read<AuthBloc>().add(AuthLogoutEvent());
-        //       },
-        //       child: Text('Logout',
-        //           style:
-        //               TextStyles.bodyMediumBold().copyWith(color: kRedColor)),
-        //     ),
-        //   ),
-        // ),
+        BlocListener<AuthBloc, AuthState>(
+          listenWhen: (previous, current) => current is AuthLoggedOutState,
+          listener: (context, state) {
+            Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(builder: (context) => const LoginScreen()),
+                (route) => false);
+          },
+          child: Align(
+            alignment: Alignment.topRight,
+            child: TextButton(
+              onPressed: () {
+                context.read<AuthBloc>().add(AuthLogoutEvent());
+              },
+              child: Text('Logout',
+                  style:
+                      TextStyles.bodyMediumBold().copyWith(color: kRedColor)),
+            ),
+          ),
+        ),
         // const SizedBox(
         //   height: 20,
         // ),

@@ -58,6 +58,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       AuthLogoutEvent event, Emitter<AuthState> emit) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.remove('email');
-    emit(AuthNotLoggedInState());
+    emit(AuthLoggedOutState());
   }
 }
