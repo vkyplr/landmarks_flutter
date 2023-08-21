@@ -12,11 +12,4 @@ class AuthSubmitEvent extends AuthEvent {
 
 class AuthCheckLoginEvent extends AuthEvent {}
 
-class AuthTextChangedEvent extends AuthEvent {
-  final String email;
-  final String password;
-
-  AuthTextChangedEvent({required this.password, required this.email});
-}
-
 class AuthLogoutEvent extends AuthEvent {}

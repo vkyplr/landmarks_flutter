@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
 import 'package:world_famous_landmarks/data/models/landmark_model.dart';
 import 'package:world_famous_landmarks/res/colors/app_colors.dart';
 import 'package:world_famous_landmarks/res/dimensions/app_dimensions.dart';
@@ -57,7 +56,7 @@ class _LandmarkInfoScreenState extends State<LandmarkInfoScreen> {
         body: Stack(
           children: [
             SizedBox(
-              height: 60.h,
+              height: MediaQuery.sizeOf(context).height * 0.6,
               child: Image.network(
                 widget.landmark.photoUrl!,
                 fit: BoxFit.cover,
@@ -69,11 +68,12 @@ class _LandmarkInfoScreenState extends State<LandmarkInfoScreen> {
               child: Column(
                 children: [
                   SizedBox(
-                    height: 57.h,
+                    height: MediaQuery.sizeOf(context).height * 0.57,
                   ),
                   Container(
-                    constraints:
-                        BoxConstraints(minHeight: 60.h, maxHeight: 85.h),
+                    constraints: BoxConstraints(
+                        minHeight: MediaQuery.sizeOf(context).height * 0.6,
+                        maxHeight: MediaQuery.sizeOf(context).height * 0.85),
                     width: double.infinity,
                     padding: const EdgeInsets.symmetric(
                         horizontal: kPageHorizontalPadding,
@@ -92,6 +92,9 @@ class _LandmarkInfoScreenState extends State<LandmarkInfoScreen> {
                             Text(
                               widget.landmark.name!,
                               style: TextStyles.headingLarge(),
+                            ),
+                            const SizedBox(
+                              height: 10,
                             ),
                             Text(widget.landmark.description!,
                                 style: TextStyles.bodyMedium())

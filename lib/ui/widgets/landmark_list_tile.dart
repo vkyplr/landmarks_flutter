@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sizer/sizer.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:world_famous_landmarks/bloc/landmarks/landmarks_bloc.dart';
 import 'package:world_famous_landmarks/data/models/landmark_model.dart';
 import 'package:world_famous_landmarks/res/colors/app_colors.dart';
@@ -20,7 +20,7 @@ class LandmarkListTile extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(bottom: 15),
       padding: const EdgeInsets.all(kCardPadding),
-      height: 15.h,
+      height: 100.h,
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(kCardBorderRadius)),
         color: kCardColor,
@@ -39,8 +39,8 @@ class LandmarkListTile extends StatelessWidget {
               child: Image.network(
                 landmark.photoUrl!,
                 fit: BoxFit.cover,
-                width: 30.w,
-                height: 15.h,
+                width: 100.w,
+                height: 100.h,
               ),
             ),
             const SizedBox(

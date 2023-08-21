@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TextStyles {
   static TextStyle headingLarge() {
@@ -22,26 +22,26 @@ class TextStyles {
 
   static TextStyle bodySmall() {
     return TextStyle(
-      fontSize: 12.sp,
+      fontSize: 15.sp,
     );
   }
 
   static TextStyle bodySmallBold() {
     return TextStyle(
-      fontSize: 12.sp,
+      fontSize: 15.sp,
       fontWeight: FontWeight.w600,
     );
   }
 
   static TextStyle bodyVerySmall() {
     return TextStyle(
-      fontSize: 10.sp,
+      fontSize: 12.sp,
     );
   }
 
   static TextStyle bodyVerySmallBold() {
     return TextStyle(
-      fontSize: 10.sp,
+      fontSize: 12.sp,
       fontWeight: FontWeight.w600,
     );
   }

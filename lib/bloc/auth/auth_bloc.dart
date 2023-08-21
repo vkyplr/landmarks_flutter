@@ -12,7 +12,6 @@ part 'auth_state.dart';
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc() : super(AuthInitial()) {
     on<AuthSubmitEvent>(authSubmitEvent);
-    on<AuthTextChangedEvent>(authTextChangedEvent);
     on<AuthCheckLoginEvent>(authCheckLoginEvent);
     on<AuthLogoutEvent>(authLogoutEvent);
   }
@@ -34,17 +33,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       // Emitting Error State if Login is Not Successful
       emit(AuthErrorState(message: response.message));
     }
-  }
-
-  FutureOr<void> authTextChangedEvent(
-      AuthTextChangedEvent event, Emitter<AuthState> emit) {
-    RegExp emailRegex = RegExp(
-        r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
-    final bool emailValid = emailRegex.hasMatch(event.email);
-    final bool passwordValid = event.password.length >= 6;
-    // Emit Validation State
-    emit(AuthValidationState(
-        isValidEmail: emailValid, isValidPassword: passwordValid));
   }
 
   FutureOr<void> authCheckLoginEvent(

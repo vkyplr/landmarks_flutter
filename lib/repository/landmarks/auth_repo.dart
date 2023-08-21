@@ -10,7 +10,7 @@ class AuthRepo {
     if (result) {
       return AuthNetworkResponseModel(isLoggedIn: result, email: email);
     } else {
-      return ErrorModel(message: 'Invalid Email or Password');
+      return ErrorModel(message: 'Incorrect Email or Password');
     }
   }
 }

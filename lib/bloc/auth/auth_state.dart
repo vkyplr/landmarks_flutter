@@ -21,14 +21,5 @@ final class AuthErrorState extends AuthState {
   AuthErrorState({required this.message});
 }
 
-// Validation State
-final class AuthValidationState extends AuthState {
-  final bool isValidEmail;
-  final bool isValidPassword;
-
-  AuthValidationState(
-      {required this.isValidEmail, required this.isValidPassword});
-}
-
 // Not Logged im State
 final class AuthNotLoggedInState extends AuthState {}
