@@ -28,7 +28,7 @@ class TextInputStyles {
       isCollapsed: true,
       isDense: true,
       hintText: hint,
-      contentPadding: EdgeInsets.symmetric(horizontal: 15.h, vertical: 10.h),
+      contentPadding: EdgeInsets.symmetric(horizontal: 15.h, vertical: 15.h),
       filled: true,
       fillColor: kCardColor,
       border: const OutlineInputBorder(
